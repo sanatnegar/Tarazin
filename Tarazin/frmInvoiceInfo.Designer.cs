@@ -171,6 +171,7 @@
             this.btnAction.Size = new System.Drawing.Size(100, 35);
             this.btnAction.TabIndex = 13;
             this.btnAction.UseVisualStyleBackColor = true;
+            this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
             // 
             // btnClose
             // 
@@ -195,6 +196,7 @@
             this.Name = "frmInvoiceInfo";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Text = "اطلاعات فاکتور";
+            this.Load += new System.EventHandler(this.frmInvoiceInfo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
