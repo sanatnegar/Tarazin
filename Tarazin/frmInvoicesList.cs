@@ -20,6 +20,7 @@ namespace Tarazin
         private void btnNewInvoice_Click(object sender, EventArgs e)
         {
             frmInvoiceInfo fo = new frmInvoiceInfo();
+            fo.strAction = "NEWINVOICE";
             fo.ShowDialog();
         }
 

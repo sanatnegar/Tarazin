@@ -11,6 +11,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Globalization;
 
 
 namespace Tarazin
@@ -27,6 +28,35 @@ namespace Tarazin
 
 
         public static double dblCurrentWeight;
+
+        public static string TodayJalaliDate()
+        {
+            string strDay;
+            string strMonth;
+            string strYear;
+            PersianCalendar pc = new PersianCalendar();
+            DateTime todayDate = DateTime.Now;
+
+            strYear = pc.GetYear(todayDate).ToString();
+            strMonth = pc.GetMonth(todayDate).ToString();
+            strDay = pc.GetDayOfMonth(todayDate).ToString();
+
+            if (strMonth.Length < 2)
+            {
+                strMonth = "0" + strMonth;
+            }
+
+            if (strDay.Length < 2)
+            {
+                strDay = "0" + strDay;
+            }
+
+
+            string strToday = "{0}/{1}/{2}";
+            strToday = string.Format(strToday,strYear,strMonth ,strDay );
+            return strToday;
+        }
+
 
         public static void OnlyDigits(object sender, KeyPressEventArgs e)
         {

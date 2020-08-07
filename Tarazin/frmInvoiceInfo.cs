@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Tarazin
 {
@@ -24,8 +25,14 @@ namespace Tarazin
         {
             string strSQL = "";
 
+            if (strAction == "NEWINVOICE")
+            {
 
+            }
+            else
+            {
 
+            }
         }
 
         private void frmInvoiceInfo_Load(object sender, EventArgs e)
@@ -33,13 +40,19 @@ namespace Tarazin
             if(strAction == "NEWINVOICE")
             {
                 this.btnAction.Text = "ایجاد";
+                this.txtInvoiceNumber.Text = GetInvoiceNumber().ToString();
+                this.txtFDate.Text = G.TodayJalaliDate();
+                this.lblTax.Visible = false;
+                this.lblPrice.Visible = false;
+                this.txtTax.Visible = false;
+                this.txtPrice.Visible = false;
+                
             }else
             {
                 this.btnAction.Text = "بروزرسانی";
-
             }
 
-            GetInvoiceNumber();
+           
         }
 
         private void btnClose_Click(object sender, EventArgs e)

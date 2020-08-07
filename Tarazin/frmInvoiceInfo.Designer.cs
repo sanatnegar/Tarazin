@@ -37,17 +37,19 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtFDate = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtInvoiceNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAction = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnCustomerQuickAccess = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnCustomerQuickAccess);
             this.groupBox1.Controls.Add(this.txtPrice);
             this.groupBox1.Controls.Add(this.lblPrice);
             this.groupBox1.Controls.Add(this.txtTax);
@@ -56,7 +58,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtFDate);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtInvoiceNumber);
             this.groupBox1.Controls.Add(this.label1);
@@ -131,12 +133,13 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "کد مشتری:";
             // 
-            // textBox2
+            // txtFDate
             // 
-            this.textBox2.Location = new System.Drawing.Point(100, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 15;
+            this.txtFDate.Location = new System.Drawing.Point(100, 51);
+            this.txtFDate.Name = "txtFDate";
+            this.txtFDate.Size = new System.Drawing.Size(100, 23);
+            this.txtFDate.TabIndex = 15;
+            this.txtFDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -154,6 +157,7 @@
             this.txtInvoiceNumber.ReadOnly = true;
             this.txtInvoiceNumber.Size = new System.Drawing.Size(100, 23);
             this.txtInvoiceNumber.TabIndex = 13;
+            this.txtInvoiceNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -183,6 +187,15 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnCustomerQuickAccess
+            // 
+            this.btnCustomerQuickAccess.Location = new System.Drawing.Point(62, 80);
+            this.btnCustomerQuickAccess.Name = "btnCustomerQuickAccess";
+            this.btnCustomerQuickAccess.Size = new System.Drawing.Size(32, 23);
+            this.btnCustomerQuickAccess.TabIndex = 24;
+            this.btnCustomerQuickAccess.Text = "...";
+            this.btnCustomerQuickAccess.UseVisualStyleBackColor = true;
+            // 
             // frmInvoiceInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -196,6 +209,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmInvoiceInfo";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "اطلاعات فاکتور";
             this.Load += new System.EventHandler(this.frmInvoiceInfo_Load);
             this.groupBox1.ResumeLayout(false);
@@ -215,11 +229,12 @@
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox textBox3;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox txtFDate;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox txtInvoiceNumber;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAction;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnCustomerQuickAccess;
     }
 }
