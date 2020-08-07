@@ -17,6 +17,15 @@ namespace Tarazin
             InitializeComponent();
         }
 
-       
+        private void btnNewInvoice_Click(object sender, EventArgs e)
+        {
+            frmInvoiceInfo fo = new frmInvoiceInfo();
+            fo.ShowDialog();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

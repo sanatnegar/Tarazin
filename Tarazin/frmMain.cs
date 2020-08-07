@@ -192,5 +192,11 @@ namespace Tarazin
             fo.ShowDialog();
 
         }
+
+        private void btnInvoice_Click(object sender, EventArgs e)
+        {
+            frmInvoicesList fo = new frmInvoicesList();
+            fo.ShowDialog();
+        }
     }
 }

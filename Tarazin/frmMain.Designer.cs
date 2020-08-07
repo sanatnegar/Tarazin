@@ -255,6 +255,7 @@
             this.btnInvoice.TabIndex = 6;
             this.btnInvoice.Text = "فاکتور";
             this.btnInvoice.UseVisualStyleBackColor = true;
+            this.btnInvoice.Click += new System.EventHandler(this.btnInvoice_Click);
             // 
             // btnCustomers
             // 

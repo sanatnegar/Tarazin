@@ -73,6 +73,7 @@
             this.btnNewInvoice.TabIndex = 2;
             this.btnNewInvoice.Text = "ایجاد فاکتور جدید";
             this.btnNewInvoice.UseVisualStyleBackColor = true;
+            this.btnNewInvoice.Click += new System.EventHandler(this.btnNewInvoice_Click);
             // 
             // btnShowEditInvoiceInfo
             // 
@@ -109,6 +110,7 @@
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "بستن";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // dataGridView1
             // 

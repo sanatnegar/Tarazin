@@ -123,7 +123,7 @@ namespace Tarazin
              + " user_id INTEGER,"
              + " customer_id INTEGER,"
              + " invoice_date LONGTEXT,"
-             + " invcoice_time LONGTEXT"
+             + " invoice_time LONGTEXT,"
              + " total_tax DOUBLE,"
              + " total_price DOUBLE"
              + ")";
