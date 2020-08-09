@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCustomerQuickAccess = new System.Windows.Forms.Button();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.lblPrice = new System.Windows.Forms.Label();
             this.txtTax = new System.Windows.Forms.TextBox();
             this.lblTax = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtCustomerFullName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCustomerCode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtFDate = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnAction = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnCustomerQuickAccess = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,9 +54,9 @@
             this.groupBox1.Controls.Add(this.lblPrice);
             this.groupBox1.Controls.Add(this.txtTax);
             this.groupBox1.Controls.Add(this.lblTax);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtCustomerFullName);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtCustomerCode);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtFDate);
             this.groupBox1.Controls.Add(this.label2);
@@ -68,10 +68,20 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
+            // btnCustomerQuickAccess
+            // 
+            this.btnCustomerQuickAccess.Location = new System.Drawing.Point(62, 80);
+            this.btnCustomerQuickAccess.Name = "btnCustomerQuickAccess";
+            this.btnCustomerQuickAccess.Size = new System.Drawing.Size(32, 23);
+            this.btnCustomerQuickAccess.TabIndex = 24;
+            this.btnCustomerQuickAccess.Text = "...";
+            this.btnCustomerQuickAccess.UseVisualStyleBackColor = true;
+            // 
             // txtPrice
             // 
             this.txtPrice.Location = new System.Drawing.Point(100, 167);
             this.txtPrice.Name = "txtPrice";
+            this.txtPrice.ReadOnly = true;
             this.txtPrice.Size = new System.Drawing.Size(100, 23);
             this.txtPrice.TabIndex = 23;
             // 
@@ -80,14 +90,15 @@
             this.lblPrice.AutoSize = true;
             this.lblPrice.Location = new System.Drawing.Point(208, 170);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(84, 16);
+            this.lblPrice.Size = new System.Drawing.Size(74, 16);
             this.lblPrice.TabIndex = 22;
-            this.lblPrice.Text = "شماره فاکتور:";
+            this.lblPrice.Text = "بهای فاکتور:";
             // 
             // txtTax
             // 
             this.txtTax.Location = new System.Drawing.Point(100, 138);
             this.txtTax.Name = "txtTax";
+            this.txtTax.ReadOnly = true;
             this.txtTax.Size = new System.Drawing.Size(100, 23);
             this.txtTax.TabIndex = 21;
             // 
@@ -100,13 +111,13 @@
             this.lblTax.TabIndex = 20;
             this.lblTax.Text = "مالیات:";
             // 
-            // textBox4
+            // txtCustomerFullName
             // 
-            this.textBox4.Location = new System.Drawing.Point(6, 109);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(194, 23);
-            this.textBox4.TabIndex = 19;
+            this.txtCustomerFullName.Location = new System.Drawing.Point(6, 109);
+            this.txtCustomerFullName.Name = "txtCustomerFullName";
+            this.txtCustomerFullName.ReadOnly = true;
+            this.txtCustomerFullName.Size = new System.Drawing.Size(194, 23);
+            this.txtCustomerFullName.TabIndex = 19;
             // 
             // label4
             // 
@@ -117,12 +128,13 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "نام مشتری:";
             // 
-            // textBox3
+            // txtCustomerCode
             // 
-            this.textBox3.Location = new System.Drawing.Point(100, 80);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 23);
-            this.textBox3.TabIndex = 17;
+            this.txtCustomerCode.Location = new System.Drawing.Point(100, 80);
+            this.txtCustomerCode.Name = "txtCustomerCode";
+            this.txtCustomerCode.Size = new System.Drawing.Size(100, 23);
+            this.txtCustomerCode.TabIndex = 17;
+            this.txtCustomerCode.TextChanged += new System.EventHandler(this.txtCustomerCode_TextChanged);
             // 
             // label3
             // 
@@ -187,15 +199,6 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnCustomerQuickAccess
-            // 
-            this.btnCustomerQuickAccess.Location = new System.Drawing.Point(62, 80);
-            this.btnCustomerQuickAccess.Name = "btnCustomerQuickAccess";
-            this.btnCustomerQuickAccess.Size = new System.Drawing.Size(32, 23);
-            this.btnCustomerQuickAccess.TabIndex = 24;
-            this.btnCustomerQuickAccess.Text = "...";
-            this.btnCustomerQuickAccess.UseVisualStyleBackColor = true;
-            // 
             // frmInvoiceInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -225,9 +228,9 @@
         public System.Windows.Forms.Label lblPrice;
         public System.Windows.Forms.TextBox txtTax;
         public System.Windows.Forms.Label lblTax;
-        public System.Windows.Forms.TextBox textBox4;
+        public System.Windows.Forms.TextBox txtCustomerFullName;
         public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox txtCustomerCode;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txtFDate;
         public System.Windows.Forms.Label label2;

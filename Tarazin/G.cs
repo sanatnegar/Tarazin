@@ -18,14 +18,13 @@ namespace Tarazin
 {
     public static class G
     {
+        public static long lngCurrentUserId;
         public static string strCurrentUserFirstname;
         public static string strCurremtUserLastname;
         public static string strCurrentUsername;
         public static string strCurrentUserLevel;
 
-
         public static String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Application.StartupPath + "\\Tarazin.accdb;Jet OLEDB:Database Password=12345678;";
-
 
         public static double dblCurrentWeight;
 

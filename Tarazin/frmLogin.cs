@@ -92,6 +92,7 @@ namespace Tarazin
             if (Password == dbPassword)
             {
                 //UserAuthenticated = true;
+                G.lngCurrentUserId = long.Parse(Convert.ToString(dtUser.Rows[0][0]));
                 G.strCurrentUserFirstname = Convert.ToString(dtUser.Rows[0][1]);
                 G.strCurremtUserLastname = Convert.ToString(dtUser.Rows[0][2]);
                 G.strCurrentUsername = Convert.ToString(dtUser.Rows[0][3]);

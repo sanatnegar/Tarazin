@@ -24,9 +24,25 @@ namespace Tarazin
         private void btnAction_Click(object sender, EventArgs e)
         {
             string strSQL = "";
+            long lngInvoiceNo;
+            long lngUserId;
+            long lngCutomerId;
+            string strInvoiceDate;
+            string strInvoiceTime;
+            double dblTotalTax;
+            double dblTotalPrice;
+
+
+            if (ValidateFields() == false)
+            {
+                return;
+            }
 
             if (strAction == "NEWINVOICE")
             {
+                lngInvoiceNo = long.Parse(this.txtInvoiceNumber.Text);
+                lngUserId = G.lngCurrentUserId;
+
 
             }
             else
@@ -62,6 +78,17 @@ namespace Tarazin
 
         private bool ValidateFields()
         {
+            if (txtFDate.Text == "")
+            {
+                MessageBox.Show("فیلد تاریخ خالی است", "خطا");
+                return false;
+            }
+            if (txtCustomerCode.Text == "")
+            {
+                MessageBox.Show("کد مشتری را وارد کنید", "خطا");
+                return false;
+            }
+
             return true;
         }
 
@@ -84,5 +111,45 @@ namespace Tarazin
             
         }
 
+        private long GetCustomerIdByCode(string strCode)
+        {
+            long lngCustomerID;
+            string strSQL = "SELECT * FROM Customers WHERE code = '{0}'";
+            strSQL = string.Format(strSQL, strCode);
+            DataTable dt = new DataTable();
+            dt = G.SelectData(strSQL);
+            lngCustomerID = long.Parse(dt.Rows[0][0].ToString());
+            return lngCustomerID;
+        }
+
+        private string GetCustomerFullNameByCode(string strCode)
+        {
+            string Firstname = "";
+            string Lastname = "";
+            string strSQL = "SELECT * FROM Customers WHERE code = '{0}'";
+            strSQL = string.Format(strSQL, strCode);
+            DataTable dt = new DataTable();
+            dt = G.SelectData(strSQL);
+            if(dt.Rows.Count == 0)
+            {
+                return "";
+            }else
+            {
+                Firstname = dt.Rows[0][2].ToString();
+                Lastname = dt.Rows[0][3].ToString();
+                return Firstname + " " + Lastname;
+            }
+        }
+
+        private void txtCustomerCode_TextChanged(object sender, EventArgs e)
+        {
+            if(this.txtCustomerCode.Text != "")
+            {
+                this.txtCustomerFullName.Text = GetCustomerFullNameByCode(this.txtCustomerCode.Text);
+            }else
+            {
+                this.txtCustomerFullName.Text = "";
+            }
+        }
     }
 }
