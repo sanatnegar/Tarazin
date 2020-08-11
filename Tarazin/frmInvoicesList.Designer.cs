@@ -64,6 +64,7 @@
             this.btnLast100Invoices.TabIndex = 1;
             this.btnLast100Invoices.Text = "100 فاکتور آخر";
             this.btnLast100Invoices.UseVisualStyleBackColor = true;
+            this.btnLast100Invoices.Click += new System.EventHandler(this.btnLast100Invoices_Click);
             // 
             // btnNewInvoice
             // 
@@ -83,6 +84,7 @@
             this.btnShowEditInvoiceInfo.TabIndex = 3;
             this.btnShowEditInvoiceInfo.Text = "نمایش / ویرایش اطلاعات فاکتور";
             this.btnShowEditInvoiceInfo.UseVisualStyleBackColor = true;
+            this.btnShowEditInvoiceInfo.Click += new System.EventHandler(this.btnShowEditInvoiceInfo_Click);
             // 
             // btnShowEditInvoiceItems
             // 
@@ -114,6 +116,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 66);
             this.dataGridView1.Name = "dataGridView1";

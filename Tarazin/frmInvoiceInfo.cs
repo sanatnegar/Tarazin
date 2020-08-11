@@ -26,9 +26,10 @@ namespace Tarazin
             string strSQL = "";
             long lngInvoiceNo;
             long lngUserId;
+            string strCurrentUname;
             long lngCutomerId;
+            string strCustomerFullName;
             string strInvoiceDate;
-            string strInvoiceTime;
             double dblTotalTax;
             double dblTotalPrice;
 
@@ -42,11 +43,22 @@ namespace Tarazin
             {
                 lngInvoiceNo = long.Parse(this.txtInvoiceNumber.Text);
                 lngUserId = G.lngCurrentUserId;
-
-
+                strCurrentUname = G.strCurrentUsername;
+                lngCutomerId = GetCustomerIdByCode(this.txtCustomerCode.Text);
+                strCustomerFullName = txtCustomerFullName.Text.ToString();
+                strInvoiceDate = txtFDate.Text.ToString();
+                dblTotalPrice = 0;
+                dblTotalTax = 0;
+                                              //    0          1       2         3               4              5          6          7
+                strSQL = "INSERT INTO Invoices (invoice_no, user_id, uname, customer_id, customer_lname, invoice_date, total_tax, total_price) VALUES ({0}, {1}, '{2}', {3}, '{4}', '{5}', {6}, {7})";
+                strSQL = string.Format(strSQL, lngInvoiceNo.ToString(), lngUserId.ToString(), strCurrentUname,  lngCutomerId.ToString(), strCustomerFullName, strInvoiceDate, dblTotalTax.ToString(), dblTotalPrice.ToString());
+                //MessageBox.Show(strSQL);
+                G.DoCommand(strSQL);
+                Close();
             }
             else
             {
+
 
             }
         }
@@ -67,8 +79,6 @@ namespace Tarazin
             {
                 this.btnAction.Text = "بروزرسانی";
             }
-
-           
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -86,6 +96,11 @@ namespace Tarazin
             if (txtCustomerCode.Text == "")
             {
                 MessageBox.Show("کد مشتری را وارد کنید", "خطا");
+                return false;
+            }
+            if (txtCustomerFullName.Text == "")
+            {
+                MessageBox.Show("کد مشتری صحیح نیست","خطا");
                 return false;
             }
 

@@ -150,9 +150,10 @@ namespace Tarazin
              + "id INTEGER IDENTITY(1,1) PRIMARY KEY NOT NULL,"
              + " invoice_no INTEGER,"
              + " user_id INTEGER,"
+             + " uname LONGTEXT,"
              + " customer_id INTEGER,"
+             + " customer_lname LONGTEXT,"
              + " invoice_date LONGTEXT,"
-             + " invoice_time LONGTEXT,"
              + " total_tax DOUBLE,"
              + " total_price DOUBLE"
              + ")";
@@ -304,6 +305,18 @@ namespace Tarazin
 
             return output;
 
+        }
+
+        public static bool ValidateParsianDate(string date)
+        {
+            bool status = false;
+
+            DateTime result = DateTime.Now;
+            CultureInfo arabicCulture = new CultureInfo("fa-IR");
+            //status = DateTime.TryParseExact(date, "dd/MM/yyyy", arabicCulture, DateTimeStyles.None, out result);
+            status = DateTime.TryParseExact(date, "yyyy/MM/dd", arabicCulture, DateTimeStyles.None, out result);
+
+            return status;
         }
     }
 }
