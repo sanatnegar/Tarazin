@@ -46,14 +46,13 @@ namespace Tarazin
 
                 fo.ID = long.Parse(dataGridView1[0, dataGridView1.CurrentRow.Index].Value.ToString());
                 fo.txtCode.Text = dataGridView1[1, dataGridView1.CurrentRow.Index].Value.ToString();
-                fo.txtFirstname.Text = dataGridView1[2, dataGridView1.CurrentRow.Index].Value.ToString();
-                fo.txtLastname.Text = dataGridView1[3, dataGridView1.CurrentRow.Index].Value.ToString();
-                fo.txtTel1.Text = dataGridView1[4, dataGridView1.CurrentRow.Index].Value.ToString();
-                fo.txtTel2.Text = dataGridView1[5, dataGridView1.CurrentRow.Index].Value.ToString();
-                fo.txtCell1.Text = dataGridView1[6, dataGridView1.CurrentRow.Index].Value.ToString();
-                fo.txtCell2.Text = dataGridView1[7, dataGridView1.CurrentRow.Index].Value.ToString();
-                fo.txtEmail.Text = dataGridView1[8, dataGridView1.CurrentRow.Index].Value.ToString();
-                fo.txtWebsite.Text = dataGridView1[9, dataGridView1.CurrentRow.Index].Value.ToString();
+                fo.txtFullName.Text = dataGridView1[2, dataGridView1.CurrentRow.Index].Value.ToString();
+                fo.txtTel1.Text = dataGridView1[3, dataGridView1.CurrentRow.Index].Value.ToString();
+                fo.txtTel2.Text = dataGridView1[4, dataGridView1.CurrentRow.Index].Value.ToString();
+                fo.txtCell1.Text = dataGridView1[5, dataGridView1.CurrentRow.Index].Value.ToString();
+                fo.txtCell2.Text = dataGridView1[6, dataGridView1.CurrentRow.Index].Value.ToString();
+                fo.txtEmail.Text = dataGridView1[7, dataGridView1.CurrentRow.Index].Value.ToString();
+                fo.txtWebsite.Text = dataGridView1[8, dataGridView1.CurrentRow.Index].Value.ToString();
 
                 fo.ShowDialog();
                 ShowAllCustomers();
@@ -115,14 +114,12 @@ namespace Tarazin
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string strSQL;
-            string strFirstname;
             string strLastname;
 
-            strFirstname = this.txtFirstname.Text.ToString();
-            strLastname = this.txtLastname.Text.ToString();
+            strLastname = this.txtFullName.Text.ToString();
 
-            strSQL = "SELECt * FROM Customers Where fname LIKE '%{0}%' AND lname LIKE '%{1}%'";
-            strSQL = string.Format(strSQL, strFirstname, strLastname);
+            strSQL = "SELECt * FROM Customers Where full_name LIKE '%{0}%'";
+            strSQL = string.Format(strSQL, strLastname);
             this.dataGridView1.DataSource = G.SelectData(strSQL);
             FormatDataGrid();
         }
@@ -134,14 +131,14 @@ namespace Tarazin
 
             this.dataGridView1.Columns[0].Visible = false;
             this.dataGridView1.Columns[1].HeaderText = "کد مشتری";
-            this.dataGridView1.Columns[2].HeaderText = "نام";
-            this.dataGridView1.Columns[3].HeaderText = "نام خانوادگی";
-            this.dataGridView1.Columns[4].HeaderText = "تلفن 1";
-            this.dataGridView1.Columns[5].HeaderText = "تلفن 2";
-            this.dataGridView1.Columns[6].HeaderText = "همراه 1";
-            this.dataGridView1.Columns[7].HeaderText = "همراه 2";
-            this.dataGridView1.Columns[8].HeaderText = "ایمیل";
-            this.dataGridView1.Columns[9].HeaderText = "آدرس سایت";
+            this.dataGridView1.Columns[2].HeaderText = "نام خانوادگی";
+            this.dataGridView1.Columns[2].Width = 200;
+            this.dataGridView1.Columns[3].HeaderText = "تلفن 1";
+            this.dataGridView1.Columns[4].HeaderText = "تلفن 2";
+            this.dataGridView1.Columns[5].HeaderText = "همراه 1";
+            this.dataGridView1.Columns[6].HeaderText = "همراه 2";
+            this.dataGridView1.Columns[7].HeaderText = "ایمیل";
+            this.dataGridView1.Columns[8].HeaderText = "آدرس سایت";
         }
 
         private void btnShowAllCustomer_Click(object sender, EventArgs e)

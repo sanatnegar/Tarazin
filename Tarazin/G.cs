@@ -136,8 +136,7 @@ namespace Tarazin
             String createCustomersTable = "CREATE TABLE Customers ("
               + "id INTEGER IDENTITY(1,1) PRIMARY KEY NOT NULL,"
               + " code LONGTEXT,"
-              + " fname LONGTEXT,"
-              + " lname LONGTEXT,"
+              + " full_name LONGTEXT,"
               + " tel1 LONGTEXT,"
               + " tel2 LONGTEXT,"
               + " cell1 LONGTEXT,"
@@ -152,7 +151,7 @@ namespace Tarazin
              + " user_id INTEGER,"
              + " uname LONGTEXT,"
              + " customer_id INTEGER,"
-             + " customer_lname LONGTEXT,"
+             + " customer_full_name LONGTEXT,"
              + " invoice_date LONGTEXT,"
              + " total_tax DOUBLE,"
              + " total_price DOUBLE"
@@ -227,8 +226,7 @@ namespace Tarazin
                 da.Fill(ds, "Customers");
                 row = ds.Tables["Customers"].NewRow();
                 row["code"] = "1";
-                row["fname"] = "";
-                row["lname"] = "رهگذر";
+                row["full_name"] = "رهگذر";
                 row["tel1"] = "";
                 row["tel2"] = "";
                 row["cell1"] = "";

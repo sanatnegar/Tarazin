@@ -31,10 +31,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.txtLastname = new System.Windows.Forms.TextBox();
-            this.txtFirstname = new System.Windows.Forms.TextBox();
+            this.txtFullName = new System.Windows.Forms.TextBox();
             this.btnAddCustomer = new System.Windows.Forms.Button();
             this.btnEditCustomer = new System.Windows.Forms.Button();
             this.btnDeleteCustomer = new System.Windows.Forms.Button();
@@ -58,10 +56,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Controls.Add(this.txtLastname);
-            this.groupBox1.Controls.Add(this.txtFirstname);
+            this.groupBox1.Controls.Add(this.txtFullName);
             this.groupBox1.Location = new System.Drawing.Point(13, 400);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(956, 89);
@@ -74,18 +70,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(682, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 16);
+            this.label2.Size = new System.Drawing.Size(113, 16);
             this.label2.TabIndex = 8;
-            this.label2.Text = "نام خانوادگی:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(920, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 16);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "نام:";
+            this.label2.Text = "نام و نام خانوادگی:";
             // 
             // btnSearch
             // 
@@ -97,21 +84,13 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // txtLastname
+            // txtFullName
             // 
-            this.txtLastname.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastname.Location = new System.Drawing.Point(468, 34);
-            this.txtLastname.Name = "txtLastname";
-            this.txtLastname.Size = new System.Drawing.Size(208, 27);
-            this.txtLastname.TabIndex = 1;
-            // 
-            // txtFirstname
-            // 
-            this.txtFirstname.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstname.Location = new System.Drawing.Point(798, 34);
-            this.txtFirstname.Name = "txtFirstname";
-            this.txtFirstname.Size = new System.Drawing.Size(116, 27);
-            this.txtFirstname.TabIndex = 0;
+            this.txtFullName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFullName.Location = new System.Drawing.Point(468, 34);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.Size = new System.Drawing.Size(208, 27);
+            this.txtFullName.TabIndex = 1;
             // 
             // btnAddCustomer
             // 
@@ -199,10 +178,8 @@
         private System.Windows.Forms.Button btnDeleteCustomer;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtLastname;
-        private System.Windows.Forms.TextBox txtFirstname;
+        private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.Button btnShowAllCustomer;
     }
 }

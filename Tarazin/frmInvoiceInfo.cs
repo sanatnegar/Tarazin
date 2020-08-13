@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Threading;
 
 namespace Tarazin
 {
@@ -15,6 +16,9 @@ namespace Tarazin
     {
         public string strAction;
         public long ID;
+
+        
+
 
         public frmInvoiceInfo()
         {
@@ -33,6 +37,8 @@ namespace Tarazin
             double dblTotalTax;
             double dblTotalPrice;
 
+           
+
 
             if (ValidateFields() == false)
             {
@@ -50,7 +56,7 @@ namespace Tarazin
                 dblTotalPrice = 0;
                 dblTotalTax = 0;
                                               //    0          1       2         3               4              5          6          7
-                strSQL = "INSERT INTO Invoices (invoice_no, user_id, uname, customer_id, customer_lname, invoice_date, total_tax, total_price) VALUES ({0}, {1}, '{2}', {3}, '{4}', '{5}', {6}, {7})";
+                strSQL = "INSERT INTO Invoices (invoice_no, user_id, uname, customer_id, customer_full_name, invoice_date, total_tax, total_price) VALUES ({0}, {1}, '{2}', {3}, '{4}', '{5}', {6}, {7})";
                 strSQL = string.Format(strSQL, lngInvoiceNo.ToString(), lngUserId.ToString(), strCurrentUname,  lngCutomerId.ToString(), strCustomerFullName, strInvoiceDate, dblTotalTax.ToString(), dblTotalPrice.ToString());
                 //MessageBox.Show(strSQL);
                 G.DoCommand(strSQL);
@@ -58,14 +64,25 @@ namespace Tarazin
             }
             else
             {
+                lngCutomerId = GetCustomerIdByCode(this.txtCustomerCode.Text);
+                strCustomerFullName = txtCustomerFullName.Text.ToString();
+                strInvoiceDate = txtFDate.Text.ToString();
 
-
+                strSQL = "UPDATE Invoices SET customer_full_name='{0}', invoice_date='{1}' WHERE id={2}";
+                strSQL = string.Format(strSQL, strCustomerFullName, strInvoiceDate, ID);
+                G.DoCommand(strSQL);
+                Close();
             }
         }
 
         private void frmInvoiceInfo_Load(object sender, EventArgs e)
         {
-            if(strAction == "NEWINVOICE")
+
+            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+
+
+
+            if (strAction == "NEWINVOICE")
             {
                 this.btnAction.Text = "ایجاد";
                 this.txtInvoiceNumber.Text = GetInvoiceNumber().ToString();

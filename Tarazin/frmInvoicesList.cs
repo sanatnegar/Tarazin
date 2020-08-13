@@ -35,17 +35,26 @@ namespace Tarazin
             string strSQL= "SELECT * FROM Invoices ORDER BY id DESC";
             DataTable dt = new DataTable();
             dt = G.SelectData(strSQL);
-            this.dataGridView1.DataSource = dt;
+            if (dt.Rows.Count > 0)
+            {
+                this.dataGridView1.DataSource = dt;
 
-            this.dataGridView1.Columns[0].Visible = false;
-            this.dataGridView1.Columns[1].HeaderText = "شماره فاکتور";
-            this.dataGridView1.Columns[2].Visible = false;
-            this.dataGridView1.Columns[3].HeaderText = "کاربر";
-            this.dataGridView1.Columns[4].Visible = false;
-            this.dataGridView1.Columns[5].HeaderText = "نام مشتری";
-            this.dataGridView1.Columns[6].HeaderText = "تاریخ";
-            this.dataGridView1.Columns[7].HeaderText = "مالیات(ریال)";
-            this.dataGridView1.Columns[8].HeaderText = "مبلغ";
+                this.dataGridView1.Columns[0].Visible = false;
+                this.dataGridView1.Columns[1].HeaderText = "شماره فاکتور";
+                this.dataGridView1.Columns[2].Visible = false;
+                this.dataGridView1.Columns[3].HeaderText = "کاربر";
+                this.dataGridView1.Columns[4].Visible = false;
+                this.dataGridView1.Columns[5].HeaderText = "نام مشتری";
+                this.dataGridView1.Columns[6].HeaderText = "تاریخ";
+                this.dataGridView1.Columns[7].HeaderText = "مالیات(ریال)";
+                this.dataGridView1.Columns[8].HeaderText = "مبلغ";
+
+            }else
+            {
+                MessageBox.Show("هیچ فاکتوری ثبت نشده است", "خطا");
+            }
+
+           
 
         }
 
@@ -56,16 +65,27 @@ namespace Tarazin
 
         private void btnShowEditInvoiceInfo_Click(object sender, EventArgs e)
         {
+            int  intRow;
+            intRow = dataGridView1.CurrentRow.Index;
+
             if(dataGridView1.Rows.Count != 0)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
                     frmInvoiceInfo fo = new frmInvoiceInfo();
+
                     fo.strAction = "EDITINVOICE";
-                    fo.ID = long.Parse(dataGridView1[0, dataGridView1.CurrentRow.Index].Value.ToString());
-                    fo.txtInvoiceNumber.Text = dataGridView1[1, dataGridView1.CurrentRow.Index].Value.ToString();
-                    fo.txtCustomerCode.Text = GetCustomerCodeByID(long.Parse(dataGridView1[4, dataGridView1.CurrentRow.Index].Value.ToString()));
-                    fo.txtFDate.Text = dataGridView1[6, dataGridView1.CurrentRow.Index].Value.ToString();
+                    fo.ID = long.Parse(dataGridView1[0, intRow].Value.ToString());
+                    fo.txtInvoiceNumber.Text = dataGridView1[1, intRow].Value.ToString();
+                    fo.txtCustomerCode.Text = GetCustomerCodeByID(long.Parse(dataGridView1[4, intRow].Value.ToString()));
+                    fo.txtFDate.Text = dataGridView1[6, intRow].Value.ToString();
+
+                    double dblTax = double.Parse(dataGridView1[7, intRow].Value.ToString());
+                    fo.txtTax.Text = dblTax.ToString("#,##");
+
+                    double dblPrice =double.Parse(dataGridView1[8, intRow].Value.ToString());
+                    fo.txtPrice.Text = dblPrice.ToString("#,##");
+
                     fo.ShowDialog();
                     ShowLast100Invoices();
                 }else

@@ -43,8 +43,8 @@ namespace Tarazin
             string strSQL = "";
 
             string strCode = "";
-            string strFirstname = "";
-            string strLastname = "";
+            
+            string strFullName = "";
             string strTel1 = "";
             string strTel2 = "";
             string strCell1 = "";
@@ -60,8 +60,7 @@ namespace Tarazin
             if (strAction == "NEWCUSTOMER")
             {
                 strCode = this.txtCode.Text.ToString();
-                strFirstname = this.txtFirstname.Text.ToString();
-                strLastname = this.txtLastname.Text.ToString();
+                strFullName = this.txtFullName.Text.ToString();
                 strTel1 = this.txtTel1.Text.ToString();
                 strTel2 = this.txtTel2.Text.ToString();
                 strCell1 = this.txtCell1.Text.ToString();
@@ -69,8 +68,8 @@ namespace Tarazin
                 strEmail = this.txtEmail.Text.ToString();
                 strWebsite = this.txtWebsite.Text.ToString();
 
-                strSQL = "INSERT INTO Customers (code, fname, lname, tel1, tel2, cell1, cell2, email, website) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')";
-                strSQL = string.Format(strSQL, strCode, strFirstname, strLastname, strTel1, strTel2, strCell1, strCell2, strEmail, strWebsite);
+                strSQL = "INSERT INTO Customers (code, full_name, tel1, tel2, cell1, cell2, email, website) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')";
+                strSQL = string.Format(strSQL, strCode, strFullName, strTel1, strTel2, strCell1, strCell2, strEmail, strWebsite);
                
                 G.DoCommand(strSQL);
                 Close();
@@ -78,8 +77,8 @@ namespace Tarazin
             else
             {
                
-                strFirstname = this.txtFirstname.Text.ToString();
-                strLastname = this.txtLastname.Text.ToString();
+                
+                strFullName = this.txtFullName.Text.ToString();
                 strTel1 = this.txtTel1.Text.ToString();
                 strTel2 = this.txtTel2.Text.ToString();
                 strCell1 = this.txtCell1.Text.ToString();
@@ -87,8 +86,8 @@ namespace Tarazin
                 strEmail = this.txtEmail.Text.ToString();
                 strWebsite = this.txtWebsite.Text.ToString();
 
-                strSQL = "UPDATE Customers SET fname='{0}', lname='{1}', tel1='{2}', tel2='{3}', cell1='{4}', cell2='{5}', email='{6}', website='{7}' WHERE id={8}";
-                strSQL = string.Format(strSQL, strFirstname, strLastname, strTel1, strTel2, strCell1, strCell2, strEmail, strWebsite, ID);
+                strSQL = "UPDATE Customers SET full_name='{0}', tel1='{1}', tel2='{2}', cell1='{3}', cell2='{4}', email='{5}', website='{6}' WHERE id={7}";
+                strSQL = string.Format(strSQL, strFullName, strTel1, strTel2, strCell1, strCell2, strEmail, strWebsite, ID);
                 G.DoCommand(strSQL);
                 Close();
 
@@ -105,13 +104,18 @@ namespace Tarazin
                 return false;
             }
 
-            if (this.txtLastname.Text == "")
+            if (this.txtFullName.Text == "")
             {
                 MessageBox.Show("فیلد نام خانوادگی خالی است", "خطا", MessageBoxButtons.OK);
                 return false;
             }
 
             return true;
+        }
+
+        private void txtCode_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
