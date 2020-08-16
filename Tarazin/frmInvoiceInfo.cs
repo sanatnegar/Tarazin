@@ -37,9 +37,6 @@ namespace Tarazin
             double dblTotalTax;
             double dblTotalPrice;
 
-           
-
-
             if (ValidateFields() == false)
             {
                 return;
@@ -78,9 +75,7 @@ namespace Tarazin
         private void frmInvoiceInfo_Load(object sender, EventArgs e)
         {
 
-            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
-
-
+            CultureInfo culture = new CultureInfo("en-US");
 
             if (strAction == "NEWINVOICE")
             {

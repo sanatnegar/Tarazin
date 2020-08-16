@@ -94,6 +94,7 @@
             this.btnShowEditInvoiceItems.TabIndex = 4;
             this.btnShowEditInvoiceItems.Text = "نمایش / ویرایش اقلام فاکتور";
             this.btnShowEditInvoiceItems.UseVisualStyleBackColor = true;
+            this.btnShowEditInvoiceItems.Click += new System.EventHandler(this.btnShowEditInvoiceItems_Click);
             // 
             // btnDeleteInvoice
             // 

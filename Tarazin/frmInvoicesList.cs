@@ -105,5 +105,12 @@ namespace Tarazin
             strCustomerCode = dt.Rows[0][1].ToString();
             return strCustomerCode;
         }
+
+        private void btnShowEditInvoiceItems_Click(object sender, EventArgs e)
+        {
+            frmInvoiceItemsList fo = new frmInvoiceItemsList();
+
+            fo.ShowDialog();
+        }
     }
 }
