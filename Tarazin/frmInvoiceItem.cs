@@ -37,10 +37,8 @@ namespace Tarazin
             {
                 dblFinishedPrice = 0;
             }
-
-           
+          
             dblFinishedPrice = dblUnitPrice * G.dblCurrentWeight;
-
             this.txtFinishedPrice.Text = dblFinishedPrice.ToString();
         }
 
@@ -74,7 +72,6 @@ namespace Tarazin
             if (dt.Rows.Count != 0)
             {
                 return dt.Rows[0][0].ToString();
-
             }
             else
             {
@@ -100,7 +97,6 @@ namespace Tarazin
             if (strAction == "NEWITEM")
             {
                 this.btnAction.Text = "اضافه";
-
             }else
             {
                 this.btnAction.Text = "ویرایش";
@@ -111,6 +107,52 @@ namespace Tarazin
         {
             this.txtItemName.Text = GetItemNameByCode(this.txtItemCode.Text);
             this.txtItemUnitPrice.Text = GetItemUnitPriceByCode(this.txtItemCode.Text);
+        }
+
+        private void btnAction_Click(object sender, EventArgs e)
+        {
+            string strSQL = "";
+
+            if (ValidateFields() == false)
+            {
+                MessageBox.Show("لطفا فیلد ها را بطور کامل پر کنید", "خطا");
+                return;
+            }
+
+            string strInvoice_ID = Invoice_ID.ToString();
+            string strItemCode = this.txtItemCode.Text.ToString();
+            string strItemName = this.txtItemName.Text.ToString();
+            string strUnitPrice = this.txtItemUnitPrice.Text.ToString();
+            string strWeight = this.txtWeight.Text.ToString();
+            string strPrice = this.txtFinishedPrice.Text.ToString();
+            
+            if (strAction == "NEWITEM")
+            {
+                strSQL = "INSERT INTO Invoice_Detailes (invoice_id, code, name, unit_price, weight, price) VALUES ({0}, '{1}', '{2}', {3}, {4}, {5})";
+                strSQL = string.Format(strSQL, strInvoice_ID, strItemCode, strItemName, strUnitPrice, strWeight, strPrice);
+                G.DoCommand(strSQL);
+            }else
+            {
+                
+
+            }
+
+            Close();
+        }
+
+        private bool ValidateFields()
+        {
+            if (this.txtItemName.Text == "")
+            {
+                return false;
+
+            }
+
+            if (this.txtWeight.Text=="" || this.txtWeight.Text == "0")
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

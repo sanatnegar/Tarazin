@@ -28,16 +28,23 @@ namespace Tarazin
         {
             frmInvoiceItem fo = new frmInvoiceItem();
             fo.strAction = "NEWITEM";
+            fo.Invoice_ID = long.Parse(this.txtInvoiceNo.Text.ToString());
             fo.ShowDialog();
             RefreshInvoiceList(Invoice_ID);
         }
 
         private void btnInvoiceEditItem_Click(object sender, EventArgs e)
         {
-            frmInvoiceItem fo = new frmInvoiceItem();
-            fo.strAction = "EDITITEM";
-            fo.ShowDialog();
-            RefreshInvoiceList(Invoice_ID);
+            if (this.dataGridView1.RowCount != 0)
+            {
+                if (this.dataGridView1.SelectedRows.Count != 0)
+                {
+                    frmInvoiceItem fo = new frmInvoiceItem();
+                    fo.strAction = "EDITITEM";
+                    fo.ShowDialog();
+                    RefreshInvoiceList(Invoice_ID);
+                }
+            }
         }
 
         private void RefreshInvoiceList(long Invoice_ID)

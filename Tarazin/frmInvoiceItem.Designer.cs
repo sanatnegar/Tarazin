@@ -56,6 +56,7 @@
             this.btnAction.Size = new System.Drawing.Size(103, 35);
             this.btnAction.TabIndex = 10;
             this.btnAction.UseVisualStyleBackColor = true;
+            this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
             // 
             // btnClose
             // 
