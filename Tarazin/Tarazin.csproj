@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmInvoiceItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInvoiceItem.Designer.cs">
+      <DependentUpon>frmInvoiceItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInvoiceItemsList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     <Compile Include="G.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmInvoiceItem.resx">
+      <DependentUpon>frmInvoiceItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInvoiceItemsList.resx">
       <DependentUpon>frmInvoiceItemsList.cs</DependentUpon>
     </EmbeddedResource>

@@ -90,8 +90,6 @@ namespace Tarazin
                 strSQL = string.Format(strSQL, strFullName, strTel1, strTel2, strCell1, strCell2, strEmail, strWebsite, ID);
                 G.DoCommand(strSQL);
                 Close();
-
-
             }
 
         }

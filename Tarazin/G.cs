@@ -23,6 +23,7 @@ namespace Tarazin
         public static string strCurremtUserLastname;
         public static string strCurrentUsername;
         public static string strCurrentUserLevel;
+        public static bool blnSerialport;
 
         public static String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Application.StartupPath + "\\Tarazin.accdb;Jet OLEDB:Database Password=12345678;";
 
@@ -159,7 +160,7 @@ namespace Tarazin
 
             String createInvoiceDetailsTable = "CREATE TABLE Invoice_Detailes ("
              + "id INTEGER IDENTITY(1,1) PRIMARY KEY NOT NULL,"
-             + " invoice_id LONGTEXT,"
+             + " invoice_id INTEGER,"
              + " code LONGTEXT,"
              + " name LONGTEXT,"
              + " unit_price DOUBLE,"

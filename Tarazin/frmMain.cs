@@ -57,12 +57,23 @@ namespace Tarazin
 
         private void fillSerialPorts()
         {
-            foreach(string strCOMM in SerialPort.GetPortNames())
+            if (G.HasSerialPort() == true) {
+                foreach (string strCOMM in SerialPort.GetPortNames())
+                {
+                    this.cmbSerialPorts.Items.Add(strCOMM);
+                }
+
+                this.cmbSerialPorts.SelectedIndex = 0;
+            }
+            else
             {
-                this.cmbSerialPorts.Items.Add(strCOMM);
+                this.cmbSerialPorts.Enabled = false;
+                this.btnConnect.Enabled = false;
+                this.cmbBaudRate.Enabled = false;
+                this.cmbDeviceModel.Enabled = false;
             }
 
-            this.cmbSerialPorts.SelectedIndex = 0;
+
 
         }
 

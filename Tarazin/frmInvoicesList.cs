@@ -39,7 +39,7 @@ namespace Tarazin
             {
                 this.dataGridView1.DataSource = dt;
 
-                this.dataGridView1.Columns[0].Visible = false;
+                this.dataGridView1.Columns[0].Visible = false; // ID
                 this.dataGridView1.Columns[1].HeaderText = "شماره فاکتور";
                 this.dataGridView1.Columns[2].Visible = false;
                 this.dataGridView1.Columns[3].HeaderText = "کاربر";
@@ -108,9 +108,25 @@ namespace Tarazin
 
         private void btnShowEditInvoiceItems_Click(object sender, EventArgs e)
         {
-            frmInvoiceItemsList fo = new frmInvoiceItemsList();
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                frmInvoiceItemsList fo = new frmInvoiceItemsList();
+                int intRow = dataGridView1.CurrentRow.Index;
+                fo.Invoice_ID = long.Parse(this.dataGridView1[0, intRow].Value.ToString());
+                fo.txtInvoiceNo.Text = this.dataGridView1[1, intRow].Value.ToString();
+                fo.txtInvoiceDate.Text = this.dataGridView1[6, intRow].Value.ToString();
+                fo.txtCustomerFullName.Text = this.dataGridView1[5, intRow].Value.ToString();
+                long lngCustomerID = long.Parse(this.dataGridView1[4, intRow].Value.ToString());
+                string strCustomerCode = GetCustomerCodeByID(lngCustomerID);
+                fo.txtCutomerCode.Text = strCustomerCode;
+                fo.ShowDialog();
+                
+            }
 
-            fo.ShowDialog();
+
+
+
+
         }
     }
 }

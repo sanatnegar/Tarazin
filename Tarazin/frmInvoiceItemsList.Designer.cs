@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtCustomerFullName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCutomerCode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtInvoiceDate = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtInvoiceNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.btnInvoiceAddItem = new System.Windows.Forms.Button();
+            this.btnInvoiceEditItem = new System.Windows.Forms.Button();
+            this.btnInvoiceDeleteItem = new System.Windows.Forms.Button();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtTax = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -52,13 +52,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtCustomerFullName);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtCutomerCode);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtInvoiceDate);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtInvoiceNo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -67,14 +67,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "اطلاعات فاکتور";
             // 
-            // textBox4
+            // txtCustomerFullName
             // 
-            this.textBox4.Location = new System.Drawing.Point(6, 68);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(187, 23);
-            this.textBox4.TabIndex = 7;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCustomerFullName.Location = new System.Drawing.Point(6, 68);
+            this.txtCustomerFullName.Name = "txtCustomerFullName";
+            this.txtCustomerFullName.ReadOnly = true;
+            this.txtCustomerFullName.Size = new System.Drawing.Size(187, 23);
+            this.txtCustomerFullName.TabIndex = 7;
+            this.txtCustomerFullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -85,14 +85,14 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "نام و نام خانوادگی مشتری:";
             // 
-            // textBox3
+            // txtCutomerCode
             // 
-            this.textBox3.Location = new System.Drawing.Point(93, 26);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(100, 23);
-            this.textBox3.TabIndex = 5;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCutomerCode.Location = new System.Drawing.Point(93, 26);
+            this.txtCutomerCode.Name = "txtCutomerCode";
+            this.txtCutomerCode.ReadOnly = true;
+            this.txtCutomerCode.Size = new System.Drawing.Size(100, 23);
+            this.txtCutomerCode.TabIndex = 5;
+            this.txtCutomerCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -103,14 +103,14 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "کد مشتری:";
             // 
-            // textBox2
+            // txtInvoiceDate
             // 
-            this.textBox2.Location = new System.Drawing.Point(375, 68);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtInvoiceDate.Location = new System.Drawing.Point(375, 68);
+            this.txtInvoiceDate.Name = "txtInvoiceDate";
+            this.txtInvoiceDate.ReadOnly = true;
+            this.txtInvoiceDate.Size = new System.Drawing.Size(100, 23);
+            this.txtInvoiceDate.TabIndex = 3;
+            this.txtInvoiceDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -121,14 +121,14 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "تاریخ:";
             // 
-            // textBox1
+            // txtInvoiceNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(375, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtInvoiceNo.Location = new System.Drawing.Point(375, 26);
+            this.txtInvoiceNo.Name = "txtInvoiceNo";
+            this.txtInvoiceNo.ReadOnly = true;
+            this.txtInvoiceNo.Size = new System.Drawing.Size(100, 23);
+            this.txtInvoiceNo.TabIndex = 1;
+            this.txtInvoiceNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -141,47 +141,52 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 123);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(573, 259);
             this.dataGridView1.TabIndex = 1;
             // 
-            // button1
+            // btnInvoiceAddItem
             // 
-            this.button1.Location = new System.Drawing.Point(552, 388);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(33, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnInvoiceAddItem.Location = new System.Drawing.Point(552, 388);
+            this.btnInvoiceAddItem.Name = "btnInvoiceAddItem";
+            this.btnInvoiceAddItem.Size = new System.Drawing.Size(33, 23);
+            this.btnInvoiceAddItem.TabIndex = 2;
+            this.btnInvoiceAddItem.Text = "+";
+            this.btnInvoiceAddItem.UseVisualStyleBackColor = true;
+            this.btnInvoiceAddItem.Click += new System.EventHandler(this.btnInvoiceAddItem_Click);
             // 
-            // button2
+            // btnInvoiceEditItem
             // 
-            this.button2.Location = new System.Drawing.Point(513, 388);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(33, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "...";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnInvoiceEditItem.Location = new System.Drawing.Point(513, 388);
+            this.btnInvoiceEditItem.Name = "btnInvoiceEditItem";
+            this.btnInvoiceEditItem.Size = new System.Drawing.Size(33, 23);
+            this.btnInvoiceEditItem.TabIndex = 3;
+            this.btnInvoiceEditItem.Text = "...";
+            this.btnInvoiceEditItem.UseVisualStyleBackColor = true;
+            this.btnInvoiceEditItem.Click += new System.EventHandler(this.btnInvoiceEditItem_Click);
             // 
-            // button3
+            // btnInvoiceDeleteItem
             // 
-            this.button3.Location = new System.Drawing.Point(474, 388);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(33, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "-";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnInvoiceDeleteItem.Location = new System.Drawing.Point(474, 388);
+            this.btnInvoiceDeleteItem.Name = "btnInvoiceDeleteItem";
+            this.btnInvoiceDeleteItem.Size = new System.Drawing.Size(33, 23);
+            this.btnInvoiceDeleteItem.TabIndex = 4;
+            this.btnInvoiceDeleteItem.Text = "-";
+            this.btnInvoiceDeleteItem.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // txtPrice
             // 
-            this.textBox5.Location = new System.Drawing.Point(12, 388);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(100, 23);
-            this.textBox5.TabIndex = 6;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrice.Location = new System.Drawing.Point(12, 388);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.ReadOnly = true;
+            this.txtPrice.Size = new System.Drawing.Size(100, 23);
+            this.txtPrice.TabIndex = 6;
+            this.txtPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -192,14 +197,14 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "جمع کل:";
             // 
-            // textBox6
+            // txtTax
             // 
-            this.textBox6.Location = new System.Drawing.Point(180, 388);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(100, 23);
-            this.textBox6.TabIndex = 8;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTax.Location = new System.Drawing.Point(180, 388);
+            this.txtTax.Name = "txtTax";
+            this.txtTax.ReadOnly = true;
+            this.txtTax.Size = new System.Drawing.Size(100, 23);
+            this.txtTax.TabIndex = 8;
+            this.txtTax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -214,7 +219,7 @@
             // 
             this.btnClose.Location = new System.Drawing.Point(12, 417);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 31);
+            this.btnClose.Size = new System.Drawing.Size(100, 42);
             this.btnClose.TabIndex = 9;
             this.btnClose.Text = "خروج";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -227,13 +232,13 @@
             this.ClientSize = new System.Drawing.Size(597, 471);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtTax);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnInvoiceDeleteItem);
+            this.Controls.Add(this.btnInvoiceEditItem);
+            this.Controls.Add(this.btnInvoiceAddItem);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -242,6 +247,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "فاکتور";
+            this.Load += new System.EventHandler(this.frmInvoiceItemsList_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -258,17 +264,17 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnInvoiceAddItem;
+        private System.Windows.Forms.Button btnInvoiceEditItem;
+        private System.Windows.Forms.Button btnInvoiceDeleteItem;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnClose;
-        public System.Windows.Forms.TextBox textBox4;
-        public System.Windows.Forms.TextBox textBox3;
-        public System.Windows.Forms.TextBox textBox2;
-        public System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.TextBox textBox5;
-        public System.Windows.Forms.TextBox textBox6;
+        public System.Windows.Forms.TextBox txtCustomerFullName;
+        public System.Windows.Forms.TextBox txtCutomerCode;
+        public System.Windows.Forms.TextBox txtInvoiceDate;
+        public System.Windows.Forms.TextBox txtInvoiceNo;
+        public System.Windows.Forms.TextBox txtPrice;
+        public System.Windows.Forms.TextBox txtTax;
     }
 }
