@@ -128,16 +128,52 @@ namespace Tarazin
             
             if (strAction == "NEWITEM")
             {
-                strSQL = "INSERT INTO Invoice_Detailes (invoice_id, code, name, unit_price, weight, price) VALUES ({0}, '{1}', '{2}', {3}, {4}, {5})";
-                strSQL = string.Format(strSQL, strInvoice_ID, strItemCode, strItemName, strUnitPrice, strWeight, strPrice);
+                // Price and Tax Calculations
+                double dblUnitPrice = Double.Parse(strUnitPrice);
+                double dblWeight = Double.Parse(strWeight);
+                double dblTax = dblUnitPrice * dblWeight * 0.09;
+                double dblPrice = dblUnitPrice * dblWeight * 1.09;
+
+                strUnitPrice = dblUnitPrice.ToString();
+                strPrice = dblPrice.ToString();
+                string strTax = dblTax.ToString();
+
+                
+
+                strSQL = "INSERT INTO Invoice_Detailes (invoice_id, code, name, unit_price, weight, tax, price) VALUES ({0}, '{1}', '{2}', {3}, {4}, {5}, {6})";
+                strSQL = string.Format(strSQL, strInvoice_ID, strItemCode, strItemName, strUnitPrice, strWeight, strTax, strPrice);
                 G.DoCommand(strSQL);
-            }else
+
+                // TODO: Updating Invoice Aggregations
+                UpdateInvoiceAggregations(Invoice_ID);
+                //////////////////////////////////////
+
+
+            }
+            else
             {
                 
 
             }
 
             Close();
+        }
+
+        private void UpdateInvoiceAggregations(long lngInvoiceID)
+        {
+            
+            string strSQL = "SELECT SUM(price) FROM Invoice_Detailes WHERE invoice_id = {0}";
+            strSQL = string.Format(strSQL, lngInvoiceID.ToString());
+            double dblTotalPrice = G.DoCommandScalar(strSQL);
+
+            strSQL = "SELECT SUM(tax) FROM Invoice_Detailes WHERE invoice_id = {0}";
+            strSQL = string.Format(strSQL, lngInvoiceID.ToString());
+            double dblTotalTax = G.DoCommandScalar(strSQL);
+
+            strSQL = "UPDATE Invoices SET total_tax = {0}, total_price = {1} WHERE id={2}";
+            strSQL = string.Format(strSQL, dblTotalTax.ToString(), dblTotalPrice.ToString(), lngInvoiceID.ToString());
+
+            G.DoCommand(strSQL);
         }
 
         private bool ValidateFields()

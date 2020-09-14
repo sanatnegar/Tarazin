@@ -165,6 +165,7 @@ namespace Tarazin
              + " name LONGTEXT,"
              + " unit_price DOUBLE,"
              + " weight DOUBLE,"
+             + " tax DOUBLE,"
              + " price DOUBLE"
              + ")";
 

@@ -53,9 +53,6 @@ namespace Tarazin
             {
                 MessageBox.Show("هیچ فاکتوری ثبت نشده است", "خطا");
             }
-
-           
-
         }
 
         private void btnLast100Invoices_Click(object sender, EventArgs e)

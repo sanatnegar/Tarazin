@@ -31,6 +31,7 @@ namespace Tarazin
             fo.Invoice_ID = long.Parse(this.txtInvoiceNo.Text.ToString());
             fo.ShowDialog();
             RefreshInvoiceList(Invoice_ID);
+            RefreshInvoiceAggregations(Invoice_ID);
         }
 
         private void btnInvoiceEditItem_Click(object sender, EventArgs e)
@@ -43,8 +44,23 @@ namespace Tarazin
                     fo.strAction = "EDITITEM";
                     fo.ShowDialog();
                     RefreshInvoiceList(Invoice_ID);
+                   
                 }
             }
+        }
+
+        private void RefreshInvoiceAggregations(long Invoice_ID)
+        {
+            string strSQL = "SELECT SUM(price) FROM Invoice_Detailes WHERE invoice_id = {0}";
+            strSQL = string.Format(strSQL,Invoice_ID);
+            double dblTotalPrice = G.DoCommandScalar(strSQL);
+            this.txtTotalPrice.Text = dblTotalPrice.ToString();
+
+            strSQL = "SELECT SUM(tax) FROM Invoice_Detailes WHERE invoice_id = {0}";
+            strSQL = string.Format(strSQL, Invoice_ID);
+            double dblTotalTax = G.DoCommandScalar(strSQL);
+            this.txtTotalTax.Text = dblTotalTax.ToString();
+            
         }
 
         private void RefreshInvoiceList(long Invoice_ID)
@@ -59,14 +75,16 @@ namespace Tarazin
             this.dataGridView1.Columns[2].HeaderText = "کد کالا";
             this.dataGridView1.Columns[3].HeaderText = "نام کالا";
             this.dataGridView1.Columns[4].HeaderText = "قیمت واحد";
-            this.dataGridView1.Columns[5].HeaderText = "ورن";
-            this.dataGridView1.Columns[6].HeaderText = "قیمت";
+            this.dataGridView1.Columns[5].HeaderText = "وزن";
+            this.dataGridView1.Columns[6].HeaderText = "مالیات";
+            this.dataGridView1.Columns[7].HeaderText = "قیمت تمام شده";
 
         }
 
         private void frmInvoiceItemsList_Load(object sender, EventArgs e)
         {
             RefreshInvoiceList(Invoice_ID);
+            //RefreshInvoiceAggregations(Invoice_ID);
         }
     }
 }
